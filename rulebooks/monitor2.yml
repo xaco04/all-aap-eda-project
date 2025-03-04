@@ -10,5 +10,5 @@
     - name: Notificar cambio de archivo
       condition: event.path is defined
       action:
-        run_playbook:
+        run_job_template:
           name: notify.yml
