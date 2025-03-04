@@ -2,9 +2,8 @@
 - name: Detectar pods caídos en OpenShift
   hosts: localhost
   sources:
-    - name: Obtener estado de los pods
-      ansible.eda.generic:
-        module: kubernetes.core.k8s_info
+    - name: Obtener estado de los pod
+      kubernetes.core.k8s_info:    
         kind: Pod
         namespace: aap
   rules:
