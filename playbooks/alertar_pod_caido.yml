@@ -1,6 +1,6 @@
 ---
 - name: hola
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Test
       ansible.builtin.debug:
