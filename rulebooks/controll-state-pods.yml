@@ -9,7 +9,7 @@
         namespace: aap
   rules:
     - name: Detectar pod en estado de error
-      condition: event.resources | selectattr('status.phase', 'in', ['Failed', 'CrashLoopBackOff']) | list | length > 0
+      condition: event.status.phase == "Failed" or event.status.phase == "CrashLoopBackOff"
       action:
         run_playbook:
           name: alertar_pod_caido.yml
