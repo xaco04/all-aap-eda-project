@@ -1,6 +1,7 @@
 ---
 - name: hola
   hosts: localhost
+  become: true
   tasks:
     - name: Test
       ansible.builtin.debug:
