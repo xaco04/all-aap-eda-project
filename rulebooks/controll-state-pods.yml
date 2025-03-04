@@ -11,5 +11,5 @@
     - name: Detectar pod en estado de error
       condition: event.status.phase == "Failed" or event.status.phase == "CrashLoopBackOff"
       action:
-        run_playbook:
+        run_job_template:
           name: alertar_pod_caido.yml
