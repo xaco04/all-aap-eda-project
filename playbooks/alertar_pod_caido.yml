@@ -1,0 +1,8 @@
+---
+- name: hola
+  hosts: all
+  tasks:
+    - name: Test
+      ansible.builtin.debug:
+        msg: "Hola esto es una prueba a ver si funciona y detecta el pod caido"
+        
