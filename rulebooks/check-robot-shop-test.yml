@@ -14,7 +14,7 @@
           name: disponible
           organization: Default
         log:
-          msg: "La página está disponible, ejecutando plantilla de 'disponible'"
+          msg: "La página está disponible, ejecutando plantilla de 'disponible', el estado de la url es: {{ event.url_check.status }}"
 
     - name: Página web caída
       condition: event.url_check.status == "down"
@@ -23,4 +23,4 @@
           name: fallo
           organization: Default
         log:
-          msg: "La página está caída, ejecutando plantilla de 'fallo'"
+          msg: "La página está caída, ejecutando plantilla de 'fallo', el estado de la url es: {{ event.url_check.status }}"
