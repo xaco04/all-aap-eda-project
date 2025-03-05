@@ -1,0 +1,26 @@
+---
+- name: Comprobar disponibilidad de una página web
+  hosts: localhost
+  sources:
+    - ansible.eda.url_check:
+        urls:
+          - "http://192.168.6.70:32032/"
+
+  rules:
+    - name: Página web disponible
+      condition: event.url_check.status == "up"
+      action:
+        run_job_template:
+          name: disponible
+          organization: Default
+        log:
+          msg: "La página está disponible, ejecutando plantilla de 'disponible'"
+
+    - name: Página web caída
+      condition: event.url_check.status == "down"
+      action:
+        run_job_template:
+          name: fallo
+          organization: Default
+        log:
+          msg: "La página está caída, ejecutando plantilla de 'fallo'"
