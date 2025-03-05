@@ -1,0 +1,8 @@
+---
+- name: Obtener la IP del servidor
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Mostrar la IP del servidor
+      debug:
+        msg: "La web está disponible"
